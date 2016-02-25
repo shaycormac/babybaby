@@ -30,6 +30,33 @@ function edit() {
 	oForm.action = "/babyplan/page/amusement/ssEdit.jsp";
 	oForm.submit();
 }
+//删除选中的文件
+function dels(){
+     
+	var oForm = document.getElementsByName("frmAction")[0];
+	//alert(oForm);
+	oForm.action = "/babyplan/StorySongDeleteServlet";
+	oForm.submit();
+	
+}
+//模糊查询
+function query()
+{
+	//不能为空
+	var oForm = document.getElementsByName("frmAction")[0];
+	var textValue = document.getElementsByName("name")[0].value;
+	//alert(textValue);
+	if (textValue) {
+	oForm.action = "/babyplan/StorySongSerachServlet?name="+textValue;
+	oForm.submit();
+		
+	} else {
+		//为空，什么也不做
+      alert("请输入关键字！！");
+	}
+
+
+	}
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -59,6 +86,8 @@ $(document).ready(function(){
 });
 </script>
 <body style="background-color:#F8F8F8">
+
+
 <form name="frmAction"  method="post" action="" >
 <table width="95%" border="0" cellpadding="3" cellspacing="1" align="center" id="chkoperation"
 		style="display:none;">
@@ -66,7 +95,7 @@ $(document).ready(function(){
 				<td>
 				<input type="checkBox" name="chkAll" onClick="selectAll()" />全选&nbsp;
 				<input type="button" onclick="dels()" value="删除" style="width: 80px;">
-				<input type="button" onclick="javascript:location.href='storySongList.jsp'" value="返回" style="width: 80px;">
+				<input type="button" onclick="javascript:location.href='/babyplan/StorySongListServlet'" value="返回" style="width: 80px;">
 				</td>
 			</tr>
 		</table>
@@ -84,12 +113,19 @@ $(document).ready(function(){
 				<input type="button" id="batch" value="批量删除" style="width:80px;">
 			</td>
 		</tr>
+		<c:if test="${empty mlist}">
+${emptyData}
+
+
+</c:if>
+	<c:if test="${not empty mlist}">	
 		<tr>
 			<td>
 			<c:forEach var="ss" items="${mlist}" >
 				<div id="photo" style="width:140px;height:170px;margin-left:20px;float: left;">
 					<div style="width:140px;height:140px;">
-						<video src="${ss.ssURL}" autoplay="autoplay" controls="controls" preload="auto"  width="140px" height="140px" poster="${ss.ssThumbnail}"></video>
+					<input type="checkbox" name="chkss" style="display:none" id="chk" value="${ss.ssId}">
+						<video src="${ss.ssURL}"  controls="controls"  width="140px" height="140px" poster="${ss.ssThumbnail}"></video>
 						
 					</div>
 					<div name="edit" style="width:140px;height:30px;">
@@ -97,7 +133,7 @@ $(document).ready(function(){
 							${ss.ssName}
 						</div>
 						<div style="width:40px;margin-top: 10px;float: left;"> 
-							<a href="/babyplan/page/amusement/ssEdit.jsp">编辑</a>
+							<a href="/babyplan/StorySongEditServlet?id=${ss.ssId}">编辑</a>
 						</div>
 					</div>
 				</div>
@@ -105,6 +141,7 @@ $(document).ready(function(){
 				
 			</td>
 		</tr>
+		</c:if>
 	</table>
 	<table width='95%' class="tex004" align="center">
 			<tr>
@@ -123,6 +160,7 @@ $(document).ready(function(){
 			</tr>
 		</table>
 </form>
+
 </body>
 </html>
 

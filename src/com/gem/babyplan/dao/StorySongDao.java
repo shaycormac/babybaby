@@ -102,7 +102,7 @@ public class StorySongDao
 		PreparedStatement pStatement=null;
 		try {
 			conn=DBConnection.getConnection();
-			String sql ="update storysong set ssType=?,ssName=?,ssThumbnail=?,ssURL=?ssBrief=? where ssId=?";
+			String sql ="update storysong set ssType=?,ssName=?,ssThumbnail=?,ssURL=?,ssBrief=? where ssId=?";
 			pStatement=conn.prepareStatement(sql);
 			pStatement.setInt(1, ss.getSsType());
 			pStatement.setString(2, ss.getSsName());
@@ -227,7 +227,7 @@ public class StorySongDao
 		return list;
 		
 	}
-	//实现模糊查询，根据儿歌名字查询
+	//实现模糊查询，根据儿歌名字查询,为空返回为零
 	public List<StorySong> getStorySongByFuzzy (String fuzzyName)
 	{
 		Connection conn=null;
