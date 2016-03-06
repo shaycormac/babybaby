@@ -79,15 +79,17 @@ $(document).ready(function(){
 				<td>联系方式</td>
 				<td>家庭住址</td>
 			</tr>
+			<c:forEach var="parent" items="${list}">
 			<tr class='even' height="30">
 				<td align='center'><input type='checkbox' name='chkparent' value='1'>
-				<td align=center>杨过</td>
-				<td align=center>杨康</td>
-				<td align=center>康师傅</td>
-				<td align=center>男</td>
-				<td align=center>15007132499</td>
-				<td align=center>鲁磨路光谷</td>
+				<td align=center>${parent.student.studentName}</td>
+				<td align=center>${parent.parentName}</td>
+				<td align=center>${parent.parentNickName}</td>
+				<td align=center>${parent.parentSex}</td>
+				<td align=center>${parent.parentTelePhone}</td>
+				<td align=center>${parent.address}</td>
 			</tr>
+			</c:forEach>
 
 		</table>
 		<table width='99%' class="tex004" align="center">

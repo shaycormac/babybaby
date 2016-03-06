@@ -96,7 +96,7 @@
 					<span><a url="/babyplan/ParentsListServlet">家长信息管理</a></span>  
 				</li>
 				<li >   
-					<span><a url="page/user/studentList.jsp">宝宝信息管理</a></span>  
+					<span><a url="/babyplan/StudentListServlet">宝宝信息管理</a></span>  
 				</li>
 			</ul>       
 		</div>

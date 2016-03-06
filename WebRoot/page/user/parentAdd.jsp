@@ -12,20 +12,20 @@
 <script type="text/javascript">
 function ensure() {
 	var oForm = document.getElementsByName("frmAction")[0];
-	oForm.action = "/babyplan";
+	oForm.action = "/babyplan/ParentAddServlet";
 	oForm.submit();
 }
 </script>
 
 <body  topmargin="10" leftmargin="10"  >
-<form name="frmAction"  method="post" action="" >
+<form name="frmAction"  method="post" action="" enctype="multipart/form-data">
 	<table width="95%" border="0" cellpadding="3" cellspacing="1" class="toolBar" align="center">
       		<tr align=left class="colom">
 			<td colspan="2" align="center" height="35" style="font-size:16px;"><b>新增家长信息</b></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
-			<td width='100' align='right' nowrap class='even'>宝宝名称&nbsp;</td>
-			<td ><input type="text" name="parentName" ></td>
+			<td width='100' align='right' nowrap class='even'>宝宝学号&nbsp;</td>
+			<td ><input type="text" name="studentNum" ></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>姓名&nbsp;</td>
@@ -63,7 +63,7 @@ function ensure() {
 		<tr >
 		   	<td  height=35 colspan="2" >
 	   			<input class="input" type="button" value="确定" onclick="ensure()" >
-				<input class="input" type="button" value="返回" onclick="javascript:location.href='parentList.jsp'" >
+				<input class="input" type="button" value="返回" onclick="location.href='/babyplan/ParentsListServlet'" >
 		   </td>
 		</tr>        
 	</table>

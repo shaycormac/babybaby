@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>家长信息列表</title>
+<title>学生信息列表</title>
 <link rel=stylesheet href="/babyplan/css/demo.css" type="text/css">
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
@@ -63,7 +63,6 @@ $(document).ready(function(){
 				<td>
 				<input type="button" onclick="add()" value="添加" style="width: 80px;">
 				<input type="button" onclick="edit()"value="修改" style="width: 80px;"> 
-				<input type="button" onclick="del()" value="删除" style="width: 80px;">
 				</td>
 			</tr>
 		</table>
@@ -78,14 +77,17 @@ $(document).ready(function(){
 				<td>性别</td>
 				<td>出生日期</td>
 			</tr>
+			<c:forEach var="stu" items="${list}">
 			<tr class='even' height="30">
 				<td align='center'><input type='checkbox' name='chkstudent' value='1'>
-				<td align=center>201610119133</td>
-				<td align=center>杨过</td>
-				<td align=center>小牛津班</td>
-				<td align=center>男</td>
-				<td align=center>2012-05-01</td>
+				<td align=center>${stu.studentNumber}</td>
+				<td align=center>${stu.studentName}</td>
+				<td align=center>${stu.classes.className}</td>
+				<td align=center>${stu.studentSex}</td>
+				<td align=center>${stu.studentBirthday}</td>
+				<td align=center><a href="/babyplan/StudentDeleteServlet?studentNumber=${stu.studentNumber}">删除</a></td>	
 			</tr>
+			</c:forEach>
 
 		</table>
 		<table width='99%' class="tex004" align="center">
