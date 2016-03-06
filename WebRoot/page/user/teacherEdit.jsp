@@ -1,5 +1,6 @@
 <!--中文编码设置-->
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
@@ -23,8 +24,25 @@ function ensure() {
 			<td colspan="2" align="center" height="35" style="font-size:16px;"><b>修改教师信息</b></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
-			<td width='100' align='right' nowrap class='even'>班级名称&nbsp;</td>
-			<td ><input type="text" name="className" value="小牛津班"></td>
+			<td width='100' align='right' nowrap class='even'>教师号&nbsp;</td>
+			<td ><input type="text" name="classNumber" value="201210119133"></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>密码&nbsp;</td>
+			<td ><input type="text" name="teacherPwd" value="123456"></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>权限&nbsp;</td>
+			<td >
+				<select name="power" style="width:50px;">
+					<option value="0">0</option>
+					<option value="1" selected>1</option>
+				</select>
+			</td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>班级号&nbsp;</td>
+			<td ><input type="text" name="classNumber" value="A03"></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>姓名&nbsp;</td>
@@ -34,6 +52,10 @@ function ensure() {
 			<td width='100' align='right' nowrap class='even'>性别&nbsp;</td>
 			<td ><input type="radio" checked value="男" name="teacherSex" >男
 				<input type="radio" value="女" name="teacherSex" >女</td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>头像&nbsp;</td>
+			<td ><input type="file" name="teacherHeader" ></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>出生日期&nbsp;</td>
@@ -51,8 +73,20 @@ function ensure() {
 			<td ><input type="text" name="graduateSchool" value="武汉大学"></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>学历&nbsp;</td>
+			<td ><input type="text" name="degree" value="本科"></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>专业&nbsp;</td>
+			<td ><input type="text" name="specialty" value="信息与计算科学"></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>在校奖励&nbsp;</td>
 			<td ><input type="text" name="reward" value="专业一等奖"></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>证书展示&nbsp;</td>
+			<td ><input type="file" name="rewardShow" ></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>专业技能评价&nbsp;</td>

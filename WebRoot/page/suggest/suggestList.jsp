@@ -11,26 +11,18 @@
 <body>
 <form name="frmAction" method="post" action="">
 	<table width="95%" style="padding:20px;">
+	<c:forEach var="suggest" items="${list}">
 		<tr height="40">
-			<td>2016-02-04</td>
+			<td>${suggest.suggestTime}</td>
 		</tr>
 		<tr>
-			<td width="95%">老师布置作业太多，孩子每天作业做得好晚，都没时间玩耍</td>
-			<td align="center"><a href="" >删除</a></td>
+			<td width="95%">${suggest.suggestText}</td>
+			<td align="center"><a href="/babyplan/SuggestDeleteServlet?suggest=${suggest.suggestId}">删除</a></td>
 		</tr>
 		<tr>
 			<td colspan="2"><hr color="#E5E5E5"></td>
 		</tr>
-		<tr height="40">
-			<td>2016-02-04</td>
-		</tr>
-		<tr>
-			<td width="95%">老师布置作业太多，孩子每天作业做得好晚，都没时间玩耍</td>
-			<td align="center"><a href="" >删除</a></td>
-		</tr>
-		<tr>
-			<td colspan="2"><hr color="#E5E5E5"></td>
-		</tr>
+		</c:forEach>
 	</table>
 	<table width='95%' class="tex004" align="center" style="padding:20px;">
 			<tr>

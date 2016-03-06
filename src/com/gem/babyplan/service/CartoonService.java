@@ -4,12 +4,14 @@ import java.util.List;
 
 import com.gem.babyplan.dao.CartoonDao;
 import com.gem.babyplan.entity.Cartoon;
-
+//我修改的 2016年2月26日
 public class CartoonService {
 	private CartoonDao dao = new CartoonDao();
 	
 	// 插入
-	public void save(Cartoon cartoon) {
+	public void save(Cartoon cartoon) 
+	{
+		//每添加一条记录，自动在cartoons生成一个文件夹，并统一使用缩略图。
 		dao.save(cartoon);
 	}
 	
@@ -24,7 +26,8 @@ public class CartoonService {
 	}
 	
 	// 查询所有动画片
-	public List<Cartoon> selectAll() {
+	public List<Cartoon> selectAll()
+	{
 		return dao.selectAll();
 	}
 	
@@ -41,5 +44,10 @@ public class CartoonService {
 	// 获得所有动画片的个数
 	public int getCount() {
 		return dao.getCount();
+	}
+	//获得卡通对象
+	public Cartoon getCartoonById (int id)
+	{
+		return dao.getCartoonByCartoonId(id);
 	}
 }

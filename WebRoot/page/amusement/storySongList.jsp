@@ -124,9 +124,8 @@ ${emptyData}
 			<c:forEach var="ss" items="${mlist}" >
 				<div id="photo" style="width:140px;height:170px;margin-left:20px;float: left;">
 					<div style="width:140px;height:140px;">
-					<input type="checkbox" name="chkss" style="display:none" id="chk" value="${ss.ssId}">
-						<video src="${ss.ssURL}"  controls="controls"  width="140px" height="140px" poster="${ss.ssThumbnail}"></video>
-						
+					<video src="${ss.ssURL}"  controls="controls"  width="140px" height="140px" poster="${ss.ssThumbnail}"></video>
+					<input type="checkbox" name="chkss" style="display:none" id="chk" value="${ss.ssId}">	
 					</div>
 					<div name="edit" style="width:140px;height:30px;">
 						<div style="width:100px;margin-top: 10px;float: left;"> 

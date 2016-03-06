@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>班级相册列表</title>
+<title>卡通片列表</title>
 <link rel=stylesheet href="/babyplan/css/demo.css" type="text/css">
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
@@ -25,16 +25,22 @@ function add(){
 	oForm.action="/babyplan/page/amusement/cartoonAdd.jsp";
 	oForm.submit();
 }
-function show(){
+//点击进入相应动漫的集数
+/* function show(){
 	var oForm=document.getElementsByName("frmAction")[0];
-	oForm.action="/babyplan/page/amusement/stationList.jsp";
-	oForm.submit();
-}
-function upload(){
+	//得到一个数组
+	var carId=document.getElementsByName("carId");
+	for()
+		{}
+	alert(carId);
+	//oForm.action="/babyplan/page/amusement/stationList.jsp";
+	//oForm.submit();
+} */
+/* function upload(){
 	var oForm=document.getElementsByName("frmAction")[0];
 	oForm.action="/babyplan/page/amusement/stationAdd.jsp";
 	oForm.submit();
-}
+} */
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -64,34 +70,32 @@ $(document).ready(function(){
 	<table>
 		<tr>
 			<td height="80" style="padding-left:25px;">
-				<input type="button" value="上传动漫" onclick="upload()">&nbsp;
-				<input type="button" onclick="add()" value="添加动漫" style="width:80px;">
+				<input type="button" value="上传集数" onclick="location.href='/babyplan/AddStationServlet'">&nbsp;
+				<input type="button" onclick="add()" value="添加动漫" style="width:80px;">	
 			</td>
 		</tr>
 		<tr>
+		<c:forEach var="cs" items="${list}">	
 			<td>
 				<div id="photo" onclick="show()" style="width:160px;height:190px;background-color:#FFFFFF;
-				margin-left:20px;float: left;">
+				margin-left:20px;float: left;" >
 					<div style="width:140px;height:140px;
-					background-image: url(/babyplan/img/cartoon/1.png);background-size:cover;margin:10px;">
+					background-image: url(${cs.cThumbnail});background-size:cover;margin:10px;" onclick="location.href='/babyplan/StationListServlet?id=${cs.cartoonId}'">
 						<div style="font-size: 30px;color: white;padding-top: 105px;float:right">250</div>
+						
 					</div>
 					<div style="width:140px;margin: 10px;"> 
-						猫和老鼠
-					</div>
-				</div>
-				<div style="width:160px;height:190px;background-color:#FFFFFF;
-				margin-left:20px;float: left;">
-					<div style="width:140px;height:140px;
-					background-image: url(/babyplan/img/cartoon/2.png);background-size:cover;margin:10px;">
-						<div style="font-size: 30px;color: white;padding-top: 105px;float:right">250</div>
-					</div>
-					<div style="width:140px;margin: 10px;"> 
-						熊出没
+						${cs.cartoonName}
+						
 					</div>
 				</div>
 			</td>
+			<td>
+			
+			</td>
+			</c:forEach>
 		</tr>
+		
 	</table>
 	<table width='95%' class="tex004" align="center">
 			<tr>

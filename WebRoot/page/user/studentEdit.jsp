@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!--中文编码设置-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
@@ -28,6 +30,10 @@ function ensure() {
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>姓名&nbsp;</td>
 			<td ><input type="text" name="studentName" value='杨过'></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>照片&nbsp;</td>
+			<td ><input type="file" name="studentPhoto" ></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>性别&nbsp;</td>

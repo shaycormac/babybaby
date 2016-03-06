@@ -65,7 +65,7 @@ $(document).ready(function(){
 	<table >
 		<tr id="batch2"·>
 			<td height="80" style="padding:20px;">
-				<input type="button" value="上传动漫" onclick="upload()">&nbsp;
+				<!--<input type="button" value="上传动漫" onclick="upload()">-->&nbsp;
 				<input type="button" id="batch" value="批量删除" style="width:80px;">&nbsp;
 				<input type="button" id="more" value="更多" style="width:80px;">
 				<div id="show" style="background-color:white;width:120px;height:100px;display:none;
@@ -80,20 +80,21 @@ $(document).ready(function(){
 		</tr>
 		<tr>
 			<td>
+			<c:forEach var="station" items="${list}">
 				<div id="photo" style="width:140px;height:200px;margin:30px;float: left;">
-					<div style="width:140px;height:140px;
-					background-image: url(/babyplan/img/cartoon/1.png);background-size:cover;">
-						<input type="checkbox" name="chkcartoon" style="display:none" id="chk">
+					<div style="width:140px;height:140px;">
+					<video src="${station.stationURL}"  controls="controls"  width="140px" height="140px" poster="${cartoon.cThumbnail}"></video>
+						<input type="checkbox" name="chkcartoon" style="display:none" id="chk" value="${station.stationId}">
 					</div>
 					<div style="width:140px;margin-top: 10px;">
-						<div style="float:left;">猫和老鼠</div> 
-						<div style="float:right;">第1集</div>
+						<div style="float:left;">${cartoon.cartoonName}</div> 
+						<div style="float:right;">${station.whichStation}</div>
 					</div>
 					<div name="edit" style="width:140px;float:left; text-align:right;margin-top: 10px;"> 
 						<a href="/babyplan/page/amusement/stationEdit.jsp">编辑</a>
 					</div>
 				</div>
-				
+				</c:forEach>	
 			</td>
 		</tr>
 	</table>

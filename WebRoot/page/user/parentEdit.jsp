@@ -32,6 +32,14 @@ function ensure() {
 			<td ><input type="text" name="parentName" value="杨康"></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>联系方式&nbsp;</td>
+			<td ><input type="text" name="teacherTelePhone" value="15007132499"></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>密码&nbsp;</td>
+			<td ><input type="text" name="parentPwd" value="123456"></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>性别&nbsp;</td>
 			<td ><input type="radio" checked value="男" name="parentSex" >男
 				<input type="radio" value="女" name="parentSex" >女</td>
@@ -41,8 +49,12 @@ function ensure() {
 			<td ><input type="text" name="parentNickName" value="康师傅"></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
-			<td width='100' align='right' nowrap class='even'>联系方式&nbsp;</td>
-			<td ><input type="text" name="teacherTelePhone" value="15007132499"></td>
+			<td width='100' align='right' nowrap class='even'>头像&nbsp;</td>
+			<td ><input type="file" name="parentHeader" ></td>
+		</tr>
+		<tr bgcolor='#ffffff'>
+			<td width='100' align='right' nowrap class='even'>背景图&nbsp;</td>
+			<td ><input type="file" name="backgroundPhoto" ></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>家庭住址&nbsp;</td>

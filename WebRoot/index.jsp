@@ -76,24 +76,24 @@
 					<span><a url="/babyplan/StorySongListServlet">儿歌故事管理</a></span>  
 				</li> 
 				<li >   
-					<span><a url="page/amusement/cartoonList.jsp">动画管理</a></span>  
+					<span><a url="/babyplan/CarToonListServlet">动画管理</a></span>  
 				</li>
 			</ul>      
 		</div> 
 		<div title="家长建议" data-options="iconCls:'icon-reload'">   
 			<ul id="tt" class="easyui-tree" >   
 				<li >   
-					<span><a url="page/suggest/suggestList.jsp">家长建议</a></span>  
+					<span><a url="/babyplan/SuggestListServlet">家长建议</a></span>  
 				</li>   
 			</ul>     
 		</div> 
 		<div title="用户管理" data-options="iconCls:'icon-reload'">   
 			<ul id="tt" class="easyui-tree" >   
 				<li >   
-					<span><a url="page/user/teacherList.jsp">教师信息管理</a></span>  
+					<span><a url="/babyplan/TeacherListServlet">教师信息管理</a></span>  
 				</li> 
 				<li >   
-					<span><a url="page/user/parentList.jsp">家长信息管理</a></span>  
+					<span><a url="/babyplan/ParentsListServlet">家长信息管理</a></span>  
 				</li>
 				<li >   
 					<span><a url="page/user/studentList.jsp">宝宝信息管理</a></span>  

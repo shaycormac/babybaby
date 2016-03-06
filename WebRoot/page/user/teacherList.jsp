@@ -30,6 +30,12 @@
 		oForm.action = "/babyplan/page/user/teacherEdit.jsp";
 		oForm.submit();
 	}
+	function del() {
+		var oForm = document.getElementsByName("frmAction")[0];
+		
+	//	oForm.action = "/babyplan/page/user/teacherEdit.jsp";
+	//	oForm.submit();
+	}
 </script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -63,7 +69,7 @@ $(document).ready(function(){
 				<td>
 				<input type="button" onclick="add()" value="添加" style="width: 80px;">
 				<input type="button" onclick="edit()"value="修改" style="width: 80px;"> 
-				<input type="button" onclick="del()" value="删除" style="width: 80px;">
+			<!-- <input type="button" onclick="del()" value="删除" style="width: 80px;"> -->	
 				</td>
 			</tr>
 		</table>
@@ -71,7 +77,7 @@ $(document).ready(function(){
 			class="toolTable" align="center">
 			<!--此处为列标题-->
 			<tr align="center" class="colom" height="30">
-				<td><input type="checkBox" name="chkAll" onClick="selectAll()" /></td>
+			<!--	<td><input type="checkBox" name="chkAll" onClick="selectAll()" /></td>  -->
 				<td align='center'>班级名称</td>
 				<td>姓名</td>
 				<td>性别</td>
@@ -79,22 +85,26 @@ $(document).ready(function(){
 				<td>联系方式</td>
 				<td>毕业院校</td>
 				<td>学历</td>
+				<td>专业</td>
 				<td>在校奖励</td>
 				<td>专业技能评价</td>
 			</tr>
+			<c:forEach var="teacher" items="${list}">
 			<tr class='even' height="30">
-				<td align='center'><input type='checkbox' name='chkTeacher' value='1'>
-				<td align=center>小牛津班</td>
-				<td align=center>白骨精</td>
-				<td align=center>女</td>
-				<td align=center>1982-02-03</td>
-				<td align=center>13995662746</td>
-				<td align=center>武汉大学</td>
-				<td align=center>本科</td>
-				<td align=center>专业一等奖</td>
-				<td align=center>英语八级</td>
+			<!--  	<td align='center'><input type='checkbox' name='chkTeacher' value='${teacher.teacherNumber}'>-->
+				<td align=center>${teacher.classes.className}</td>
+				<td align=center>${teacher.teacherName}</td>
+				<td align=center>${teacher.teacherSex}</td>
+				<td align=center>${teacher.teacherBirthday}</td>
+				<td align=center>${teacher.teacherTelePhone}</td>
+				<td align=center>${teacher.graduateSchool}</td>
+				<td align=center>${teacher.degree}</td>
+				<td align=center>${teacher.specialty}</td>
+				<td align=center>${teacher.reward}</td>
+				<td align=center>${teacher.evaluate}</td>
+				<td align=center><a href="/babyplan/TeacherDeleteServlet?teacherNum=${teacher.teacherNumber}">删除</a></td>
 			</tr>
-
+			</c:forEach>
 		</table>
 		<table width='99%' class="tex004" align="center">
 			<tr>

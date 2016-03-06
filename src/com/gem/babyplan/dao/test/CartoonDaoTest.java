@@ -56,6 +56,14 @@ public class CartoonDaoTest {
 			System.out.println(cartoon);
 		}
 	}
+	//根据动画id查询动画的对象
+	@Test
+	public void getCartoonByCartoonId ()
+	{
+		Cartoon cartoon=dao.getCartoonByCartoonId(9);
+		System.out.println(cartoon);
+		
+	}
 	
 	//分页查询
 	@Test

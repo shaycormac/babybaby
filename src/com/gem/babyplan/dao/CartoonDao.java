@@ -166,6 +166,43 @@ public class CartoonDao {
 		}
 		return list;
 	}
+	// 动画片名根据id返回对象
+	public Cartoon getCartoonByCartoonId(int cartoonId) 
+	{
+		Connection conn = null;
+		PreparedStatement prep = null;
+		ResultSet rs = null;
+		Cartoon cartoon=null;
+		try {
+			conn = DBConnection.getConnection();
+			String sql = "select * from cartoon where cartoonId =?";
+			prep = conn.prepareStatement(sql);
+			prep.setInt(1, cartoonId);
+			rs = prep.executeQuery();
+			if (rs.next())
+			{
+				cartoon = new Cartoon();
+				cartoon.setCartoonId(rs.getInt("cartoonId"));
+				cartoon.setCartoonName(rs.getString("cartoonName"));
+				cartoon.setcThumbnail(rs.getString("cThumbnail"));
+				cartoon.setCartoonBrief(rs.getString("cartoonBrief"));
+				return cartoon;
+		  	
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new CartoonRuntimeException("卡通模糊查询方法出错");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new CartoonRuntimeException("卡通模糊查询方法出错");
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new CartoonRuntimeException("卡通模糊查询方法出错");
+		} finally {
+			DBConnection.release(conn, prep, rs);
+		}
+		return null;
+	}
 
 	// 分页查询
 	public List<Cartoon> getPagedCartoon(int curPage, int pageSize) {

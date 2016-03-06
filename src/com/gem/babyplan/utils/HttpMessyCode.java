@@ -36,12 +36,7 @@ public class HttpMessyCode extends HttpServletRequestWrapper
 	
 	//在这里把原来的东西进行处理
 
-	@Override
-	public String getParameter(String name) 
-	{
-		// 很简单了.
-		return getParameterMap().get(name)[0]==null?null:getParameterMap().get(name)[0];
-	}
+	
 
 	@Override
 	public Map<String, String[]> getParameterMap() 
@@ -142,7 +137,14 @@ public class HttpMessyCode extends HttpServletRequestWrapper
 	public String[] getParameterValues(String name) 
 	{
 		// 这个简单,相当于map里面的一项
-		return getParameterMap().get(name);
+		return (String []) getParameterMap().get(name);
+	}
+
+	@Override
+	public String getParameter(String name) 
+	{
+		// 很简单了.
+		return getParameterValues(name)==null?null:getParameterValues(name)[0];
 	}
 	
 
