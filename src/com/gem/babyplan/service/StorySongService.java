@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.gem.babyplan.dao.StorySongDao;
 import com.gem.babyplan.entity.StorySong;
+import com.gem.babyplan.utils.ConstantBabyPlan;
 
 /**
 * @author 炳华儿 E-mail: 574583006@qq.com
@@ -21,11 +22,11 @@ public class StorySongService
 		//对类型进行判断,0是儿歌，1是故事
 		if (ss.getSsType()==0)
 		{
-		ss.setSsThumbnail("/babyresource/songs/default_nail/erge.jpg");	
-		ss.setSsURL("/babyresource/songs/"+ss.getSsURL());
+		ss.setSsThumbnail(ConstantBabyPlan.SONG_URL+"default_nail/erge.jpg");	
+		ss.setSsURL(ConstantBabyPlan.SONG_URL+ss.getSsURL());
 		}else {
-			ss.setSsThumbnail("/babyresource/storys/default_nail/story.jpg");	
-			ss.setSsURL("/babyresource/storys/"+ss.getSsURL());
+			ss.setSsThumbnail(ConstantBabyPlan.STORY_URL+"default_nail/story.jpg");	
+			ss.setSsURL(ConstantBabyPlan.STORY_URL+ss.getSsURL());
 		}
 		ssDao.addStorySong(ss);
 		

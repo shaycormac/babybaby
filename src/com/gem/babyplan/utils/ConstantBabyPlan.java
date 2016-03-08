@@ -7,6 +7,14 @@ package com.gem.babyplan.utils;
 */
 public class ConstantBabyPlan 
 {
+	//卡通片的url和硬盘根目录
+	public static final String CARTOON_FILE="D:/BabyBaby/cartoons";
+	public static final String CARTOON_URL="/babyresource/cartoons/";
+	//儿歌和故事的硬盘，url地址
+	public static final String STORY_FILE="D:/BabyBaby/storys/";
+	public static final String STORY_URL="/babyresource/storys/";
+	public static final String SONG_FILE="D:/BabyBaby/songs/";
+	public static final String SONG_URL="/babyresource/songs/";
 	//教师的获奖展示，硬盘根目录
 	public static final String TEACHER_REWORD_FILE="D:/BabyBaby/teachers/rewordShow/";
 	//教师的获奖展示，网络地址

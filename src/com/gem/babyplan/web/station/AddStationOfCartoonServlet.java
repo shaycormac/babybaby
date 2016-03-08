@@ -13,6 +13,7 @@ import com.gem.babyplan.entity.Cartoon;
 import com.gem.babyplan.entity.Station;
 import com.gem.babyplan.service.CartoonService;
 import com.gem.babyplan.service.StationService;
+import com.gem.babyplan.utils.ConstantBabyPlan;
 
 /**
  * Servlet implementation class AddStationOfCartoonServlet
@@ -35,12 +36,12 @@ public class AddStationOfCartoonServlet extends HttpServlet
 		//得到的上传文件
 		Part part =request.getPart("loadFile");
 		//得到拼接路径的字符串(写入硬盘的路径)
-		String fileStr ="D:/BabyBaby/cartoons/"+cartoon.getCartoonName()+"/"+part.getSubmittedFileName();
+		String fileStr =ConstantBabyPlan.CARTOON_FILE+"/"+cartoon.getCartoonName()+"/"+part.getSubmittedFileName();
 		System.out.println(fileStr);
 		//写入硬盘
 		part.write(fileStr);
 		//拼接写入数据库的字符串
-		String stationUrl ="/babyresource/cartoons/"+cartoon.getCartoonName()+"/"+part.getSubmittedFileName();
+		String stationUrl =ConstantBabyPlan.CARTOON_URL+cartoon.getCartoonName()+"/"+part.getSubmittedFileName();
 		//存进数据库
 		Station station = new Station();
 		station.setCatroon(cartoon);

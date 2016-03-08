@@ -11,6 +11,7 @@ import javax.servlet.http.Part;
 
 import com.gem.babyplan.entity.StorySong;
 import com.gem.babyplan.service.StorySongService;
+import com.gem.babyplan.utils.ConstantBabyPlan;
 
 /**
  * Servlet implementation class StorySongAddServlet
@@ -47,9 +48,9 @@ public class StorySongAddServlet extends HttpServlet
 		//判断是否存在那里
 		if (type==0) {
 			
-			part.write("D:/BabyBaby/songs/"+fileName);
+			part.write(ConstantBabyPlan.SONG_FILE+fileName);
 		}else {
-			part.write("D:/BabyBaby/storys/"+fileName);
+			part.write(ConstantBabyPlan.STORY_FILE+fileName);
 			
 		}
 		//重新连接

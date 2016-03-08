@@ -12,6 +12,7 @@ import javax.servlet.http.Part;
 
 import com.gem.babyplan.entity.Cartoon;
 import com.gem.babyplan.service.CartoonService;
+import com.gem.babyplan.utils.ConstantBabyPlan;
 
 /**
  * Servlet implementation class CartoonAddServlet
@@ -30,7 +31,7 @@ public class CartoonAddServlet extends HttpServlet {
 		String describe=request.getParameter("albumDescribe");
 		Part part=request.getPart("pic");
 		//只能在这里面写，首先新建一个文件夹，名字命名为这部名称
-		File file = new File("D:/BabyBaby/cartoons");
+		File file = new File(ConstantBabyPlan.CARTOON_FILE);
 		File file2 = new File(file, name);
 		file2.mkdir();
 		//写缩略图进去
@@ -42,9 +43,10 @@ public class CartoonAddServlet extends HttpServlet {
 		cartoon.setCartoonBrief(describe);
 		//需要重新命名缩略图的url路径
 		//我草，重新玩啊
-		String path2 = path.substring(11);
+		/*String path2 = path.substring(11);
 		path2=path2.replaceAll("\\\\", "/");
-		String urlPath ="/babyresource"+path2;
+		String urlPath ="/babyresource"+path2;*/
+		String urlPath=ConstantBabyPlan.CARTOON_URL+name+"/"+fileName;
 		cartoon.setcThumbnail(urlPath);
 		CartoonService cs = new CartoonService();
 		cs.save(cartoon);
