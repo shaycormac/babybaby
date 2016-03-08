@@ -79,5 +79,16 @@ public class StorySongService
 	{
 		return ssDao.getStorySongByFuzzy(value);
 	}
+	//返回总的个数
+	public int getTotalRecoders()
+	{
+		
+		return ssDao.getStorySongNumber();
+	}
+	//返回分页查询
+	public List<StorySong> getPagedList(int currentPage,int pageSize)
+	{
+		return ssDao.getPageStorySong(currentPage, pageSize);
+	}
 
 }

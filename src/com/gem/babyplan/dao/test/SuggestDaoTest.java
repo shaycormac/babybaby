@@ -30,7 +30,7 @@ public class SuggestDaoTest
 		public void testAdd()
 		{
 			Suggest s = new Suggest();
-			s.setSuggestText("我好像爱上了那个家长了");
+			s.setSuggestText("这尼玛什么轻卡un个啊");
 			sDao.addSuggest(s);
 			
 		}

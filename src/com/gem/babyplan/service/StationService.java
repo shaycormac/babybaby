@@ -34,5 +34,17 @@ public class StationService
 		return sDao.getAllStationOfCartoon(id);
 		
 	}
+	//返回所有的集数
+	public int getStationNum ()
+	{
+		
+		return sDao.getStationNumber();
+	}
+	//返回分页查询
+	public List<Station> getPagedStations(int currentPage,int pageSize)
+	{
+		return sDao.getPageStation(currentPage, pageSize);
+		
+	}
 
 }

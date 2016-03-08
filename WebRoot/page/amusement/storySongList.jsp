@@ -144,15 +144,15 @@ ${emptyData}
 	</table>
 	<table width='95%' class="tex004" align="center">
 			<tr>
-				<td align='left'><a href='/studentweb/ListStudent?curPage=1'><span>首页</span></a>
+				<td align='left'><a href='/babyplan/StorySongListServlet'><span>首页</span></a>
 					<c:if test="${page>1}">
-						<a href='/studentweb/ListStudent?curPage=${page-1}'><span>上一页</span></a>
+						<a href='/babyplan/StorySongListServlet?curPage=${page-1}'><span>上一页</span></a>
 					</c:if> <c:if test="${page<pages}">
-						<a href='/studentweb/ListStudent?curPage=${page+1}'><span>下一页</span></a>
-					</c:if> <a href='/studentweb/ListStudent?curPage=${pages}'>尾页</a></td>
-				<td>到第&nbsp;<input type="text" name="curPage"
+						<a href='/babyplan/StorySongListServlet?curPage=${page+1}'><span>下一页</span></a>
+					</c:if> <a href='/babyplan/StorySongListServlet?curPage=${pages}'>尾页</a></td>
+				<!-- <td>到第&nbsp;<input type="text" name="curPage"
 					style="width: 30px;">&nbsp;页&nbsp;<input type="button" name="goPage" value="go">
-				</td>
+				</td> -->
 				<td align='left'>共<c:out value="${count}"></c:out>项&nbsp;&nbsp;<c:out
 						value="${pages}"></c:out>页
 				</td>

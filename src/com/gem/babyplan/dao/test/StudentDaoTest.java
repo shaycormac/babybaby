@@ -123,7 +123,7 @@ public class StudentDaoTest
 	@Test
 	public void testGetPage()
 	{
-		List<Student> list =sDao.getPageStudent(2, 5);
+		List<Student> list =sDao.getPageStudent(2, 4);
 		for (Student student : list) 
 		{
 			System.out.println(student);

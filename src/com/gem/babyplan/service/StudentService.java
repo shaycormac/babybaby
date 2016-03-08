@@ -6,6 +6,7 @@ import java.util.List;
 import com.gem.babyplan.dao.ClassesDao;
 import com.gem.babyplan.dao.StudentDao;
 import com.gem.babyplan.entity.Classes;
+import com.gem.babyplan.entity.Parent;
 import com.gem.babyplan.entity.Student;
 
 /**
@@ -43,5 +44,27 @@ public class StudentService
 	{
 		sDao.addStudent(student);
 	}
+	// 分页查询
+			public List<Student> getPagedStudent(int curPage, int pageSize) 
+			{
+				List<Student> list =sDao.getPageStudent(curPage, pageSize);
+				List<Student> list2 = new ArrayList<>();
+				ClassesDao cDao = new ClassesDao();
+				Classes classes =null;
+				for (Student student : list)
+				{
+					classes =cDao.getClassesByClassNumber(student.getClasses().getClassNumber());
+					student.setClasses(classes);
+					list2.add(student);
+				}
+				return list2;
+				
+			}
+			
+			// 获得所有动画片的个数
+			public int getCount() 
+			{
+				return sDao.getStudentNumber();
+			}
 
 }

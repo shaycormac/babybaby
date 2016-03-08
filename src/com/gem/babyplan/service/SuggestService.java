@@ -3,6 +3,7 @@ package com.gem.babyplan.service;
 import java.util.List;
 
 import com.gem.babyplan.dao.SuggestDao;
+import com.gem.babyplan.entity.Station;
 import com.gem.babyplan.entity.Suggest;
 
 /**
@@ -31,5 +32,18 @@ public class SuggestService
 		
 		return sDao.getAllSuggest();
 	}
+	//返回所有的集数
+		public int getSuggestNum ()
+		{
+			
+			return sDao.getSuggestNumber();
+		}
+		//返回分页查询
+		public List<Suggest> getPagedSuggests(int currentPage,int pageSize)
+		{
+			return sDao.getPageSuggest(currentPage, pageSize);
+			
+		}
+	
 
 }

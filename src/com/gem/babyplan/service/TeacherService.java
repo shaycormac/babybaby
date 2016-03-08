@@ -7,6 +7,7 @@ import java.util.List;
 import com.gem.babyplan.dao.ClassesDao;
 import com.gem.babyplan.dao.TeacherDao;
 import com.gem.babyplan.entity.Classes;
+import com.gem.babyplan.entity.Parent;
 import com.gem.babyplan.entity.Teacher;
 
 public class TeacherService {
@@ -43,5 +44,25 @@ public class TeacherService {
 	{
 		dao.addTeacher(teacher);
 	}
+	// 分页查询
+			public List<Teacher> getPagedParent(int curPage, int pageSize)
+			{
+				List<Teacher> list =dao.getPageTeacher(curPage, pageSize);
+				List<Teacher> list2 = new ArrayList<>();
+				for (Teacher teacher : list) 
+				{
+					//得到每个教师对象，根据教师的对象的班级号，得到班级的对象，储存到教师里面
+					Classes classes = cDao.getClassesByClassNumber(teacher.getClasses().getClassNumber());
+					teacher.setClasses(classes);
+					list2.add(teacher);
+					
+				}
+				return list2;
+			}
+			
+			
+			public int getCount() {
+				return dao.getTeacherNumber();
+			}
 	
 }

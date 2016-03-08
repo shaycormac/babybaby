@@ -362,7 +362,7 @@ public class StudentDao
 			try {
 				conn=DBConnection.getConnection();
 				int firstRecoder = (curPage-1)*pageSize;
-				String sql ="select studentNumber,studentName,classNumber,studentSex,studentBirthday,studentPhotoURL from student limit ?,? order by classNumber";
+				String sql ="select studentNumber,studentName,classNumber,studentSex,studentBirthday,studentPhotoURL from student order by classNumber limit ?,?";
 				pStatement =conn.prepareStatement(sql);
 				pStatement.setInt(1, firstRecoder);
 				pStatement.setInt(2, pageSize);
