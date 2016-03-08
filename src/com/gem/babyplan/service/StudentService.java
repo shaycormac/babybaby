@@ -38,5 +38,10 @@ public class StudentService
 		}
 		return list2;
 	}
+	//储存学生对象
+	public void addStudent(Student student)
+	{
+		sDao.addStudent(student);
+	}
 
 }

@@ -177,7 +177,7 @@ public class ParentDao
 						Student s = new Student();
 						s.setStudentNumber(rSet.getString("studentNumber"));
 						p.setStudent(s);
-						
+						return p;
 					}
 					
 					
@@ -198,7 +198,7 @@ public class ParentDao
 				{
 					DBConnection.release(conn, pStatement,rSet);
 				}
-				return p;
+				return null;
 				
 			}
 			
@@ -254,6 +254,48 @@ public class ParentDao
 					DBConnection.release(conn, pStatement,rSet);
 				}
 				return p;		
+			}
+			
+			//查找某个家长的性别，目的主要看是否存在，根据学生序号
+			public String getParentByParentId (String studentNumber)
+			{
+				Connection conn=null;
+				PreparedStatement pStatement=null;
+				ResultSet rSet =null;
+				String sex =null;
+				
+				try {
+					conn=DBConnection.getConnection();
+					String sql ="select parentSex from parent where studentNumber=?";
+					pStatement =conn.prepareStatement(sql);
+					pStatement.setString(1, studentNumber);
+					rSet=pStatement.executeQuery();
+					
+					if(rSet.next())
+					{
+						sex=rSet.getString("parentSex");
+						return sex;
+					}
+					
+					
+				} catch (ClassNotFoundException e) 
+				{
+					e.printStackTrace();
+					throw new ParentRunTimeException("家长表dao层出错");
+				} catch (SQLException e) 
+				{
+					e.printStackTrace();
+					throw new ParentRunTimeException("家长表dao层出错");
+				} catch (IOException e)
+				{
+					e.printStackTrace();
+					throw new ParentRunTimeException("家长表dao层出错");
+				}
+				finally
+				{
+					DBConnection.release(conn, pStatement,rSet);
+				}
+				return null;		
 			}
 			
 			//查找所有家长

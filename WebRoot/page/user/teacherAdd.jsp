@@ -29,6 +29,39 @@ function ensure()
 		alert("请尽可能的完善资料，求你了！！");
 	}
 }
+
+function checkUnique() 
+{
+  //首先得到请求数据，以及要在span改变的数据
+	var studentNumber = document.getElementsByName("teacherNumber")[0].value;
+	var spanId = document.getElementById("spanId");
+	if(studentNumber)
+		{
+	 //开启一个异步请求
+	   var req;
+	   if (window.XMLHttpRequest)
+	    {
+	        req = new XMLHttpRequest();
+	    }
+	    //捕获交互事件
+	    req.onreadystatechange=function()
+	    {
+	    	
+	        if ( req.readyState==4 && req.status==200) 
+	        {
+	            //捕获到了值，实际上是person这个值
+	            var data = req.responseText;
+	            spanId.innerHTML = data;
+	          //  alert(data);      
+	        }	
+	    }
+	    //使用一般情况下都是get方式提交的
+	    req.open("GET","/babyplan/TeacherUniqueServlet?num="+studentNumber,true);
+	    req.send(null);
+		}else {
+			alert("请输入值！！");
+		}
+}
 </script>
 
 <body  topmargin="10" leftmargin="10"  >
@@ -39,7 +72,7 @@ function ensure()
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>教师号&nbsp;</td>
-			<td ><input type="text" name="teacherNumber" ></td>
+			<td ><input type="text" name="teacherNumber"><input type="button" value="检测是否唯一" onclick="checkUnique()"/><span id="spanId"></td>
 		</tr>
 		<tr bgcolor='#ffffff'>
 			<td width='100' align='right' nowrap class='even'>密码&nbsp;</td>

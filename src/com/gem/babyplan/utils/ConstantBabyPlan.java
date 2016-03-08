@@ -19,7 +19,7 @@ public class ConstantBabyPlan
 	public static final String PARENTS_BACKGROUND_FILE="D:/BabyBaby/parents/parentBackground/";
 	public static final String PARENTS_BACKGROUND_URL="/babyresource/parents/parentBackground/";
 	//宝宝的背景图片
-	public static final String STUDENT_BACKGROUND_FILE="D:/BabyBaby/students/";
+	public static final String STUDENT_BACKGROUND_FILE="D:/BabyBaby/students";
 	public static final String STUDENT_BACKGROUND_URL="/babyresource/students/";
 
 }

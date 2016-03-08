@@ -61,7 +61,7 @@ $(document).ready(function(){
 			align="center">
 			<tr>
 				<td>
-				<input type="button" onclick="add()" value="添加" style="width: 80px;">
+				<input type="button"  value="添加"  onclick="location.href='/babyplan/ClassOfStudentServlet'" style="width: 80px;">
 				<input type="button" onclick="edit()"value="修改" style="width: 80px;"> 
 				</td>
 			</tr>
